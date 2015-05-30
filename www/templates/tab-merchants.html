@@ -1,0 +1,23 @@
+<ion-view view-title="Merchants">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="merchant in merchants" type="item-text-wrap"> <!-- href="#/tab/merchants/{{merchant.id}}"-->
+        <h1>{{merchant.name}}</h1>
+        <h2>Remaining Balance: ${{merchant.totalOwe}}</h2>
+        <p>Minimum Payment: ${{merchant.minPayment}}</p>
+        <p>Due Day: {{merchant.dueDay}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(merchant)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+    <button class="button button-block button-light" onclick="window.location='#/tab/merchants/new-merchant'">
+      Add Merchant
+    </button>
+    <button class="button icon ion-gear-a" ng-click="deleteDB()">
+      Remove DB
+    </button>
+  </ion-content>
+</ion-view>
