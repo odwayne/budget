@@ -57,15 +57,6 @@ angular.module('myApp.services', [])
     removeDB: removeDB
   };
 
-  function removeDB() {
-    _db.destroy().then(function () {
-      console.log("Success")
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
   function initDB() {
     _db = new PouchDB('merchants', {location : 1});
     console.log("db: " + _db)
@@ -122,7 +113,7 @@ angular.module('myApp.services', [])
     return deferred.promise;
   };
 
-  function deleteMerchant() {
+  function deleteMerchant(merchant) {
     var deferred = $q.defer();
     deferred.resolve(_db.remove(merchant));
     return deferred.promise;
