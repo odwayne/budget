@@ -5,9 +5,11 @@
         <h1>{{merchant.name}}</h1>
         <h2>Remaining Balance: ${{merchant.totalOwe}}</h2>
         <p>Minimum Payment: ${{merchant.minPayment}}</p>
-        <p>Due Day: {{merchant.dueDay}}</p>
+        <p>Due Day: {{merchant.dueDay | date:'MM/dd'}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
-
+        <ion-option-button class="button-assertive" ng-click="">
+          Edit
+        </ion-option-button>
         <ion-option-button class="button-assertive" ng-click="remove(merchant)">
           Delete
         </ion-option-button>

@@ -1,27 +1,30 @@
 <ion-view view-title={{merchant.name}}>
   <ion-content class="padding">
-    <div class="list">
-      <label class="item item-input item-floating-label">
+    <form name="merchantForm" class="form-style" ng-submit="addMerchant()" novalidate>
+      <label class="item item-input item-floating-label" name="merchantName">
         <span class="input-label">Merchant Name</span>
-        <input type="text" placeholder="Merchant Name" ng-model='merchant.name' ng-model-options="{updateOn: 'blur'}" required>
+        <input type="text" name="merchantName" placeholder="Merchant Name" ng-model='merchant.name' ng-model-options="{updateOn: 'blur'}" autofocus required>
+        <span class="error" ng-show="merchantForm.input.$error.required">Required!</span><br>
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Total Amount Owe</span>
-        <input type="number" placeholder="Total Amount Owe - $" ng-model='merchant.totalOwe' required>
+        <input type="tel" placeholder="Total Amount Owe - $" ng-model='merchant.totalOwe' required>
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Minimum Payment</span>
-        <input type="number" placeholder="Minimum Payment - $" ng-model='merchant.minPayment'>
+        <input type="tel" placeholder="Minimum Payment - $" ng-model='merchant.minPayment' required>
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Due Day</span>
-        <input type="date" placeholder="Due Day" ng-model='merchant.dueDay'>
+        <input type="date" placeholder="Due Day" ng-model='merchant.dueDay' required>
       </label>
-    </div>
-    <button class="button button-block button-positive" ng-click="addMerchant()">
-      Add Merchant
-    </button>
-    <button class="button button-block button-assertive" onclick="window.location='#/tab/merchants'">
+
+      <input type="submit" class="button button-block button-positive" id="submit" value="Submit">
+      <button class="button button-block button-calm" type="button" ng-click="reset()" ng-hide="!merchantChanged()">
+        Start over
+      </button>
+    </form>
+    <button class="button button-block button-clear button-assertive" onclick="window.location='#/tab/merchants'">
       Cancel
     </button>
 

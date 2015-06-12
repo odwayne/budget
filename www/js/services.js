@@ -1,47 +1,5 @@
 angular.module('myApp.services', [])
 
-  // Some fake testing data
-.factory('Merchants', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var merchants = [{
-    id: 0,
-    name: 'Wells Fargo Bank',
-    totalOwe: 15000.00,
-    minPayment: 100,
-    dueDay: 15
-  }, {
-    id: 1,
-    name: 'Chase Bank',
-    totalOwe: 9888.96,
-    minPayment: 256.32,
-    dueDay: 22
-  }];
-
-  return {
-    all: function() {
-      return merchants;
-    },
-    remove: function(merchant) {
-      merchants.splice(merchant.indexOf(chat), 1);
-    },
-    get: function(merchantId) {
-      for (var i = 0; i < merchants.length; i++) {
-        if (merchants[i].id === parseInt(merchantId)) {
-          return merchants[i];
-        }
-      }
-      return null;
-    },
-    add: function(merchant) {
-      merchant.id = merchants.length + 1;
-      return merchants.push(merchant);
-
-    }
-  };
-})
-
 .factory('MerchantService', ['$q',function($q) {
 
   var _db;

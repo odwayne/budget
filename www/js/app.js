@@ -59,6 +59,16 @@ angular.module('myApp', ['ionic', 'myApp.controllers', 'myApp.services', 'ionic.
     }
   })
 
+  .state('tab.merchant-details', {
+    url: '/dash/merchant-details',
+    views: {
+      'tab-merchant-details': {
+        templateUrl: 'templates/merchant-details.html',
+        controller: 'MerchantDetailsCtrl'
+      }
+    }
+  })
+
   .state('tab.account', {
     url: '/account',
     views: {
@@ -89,6 +99,6 @@ angular.module('myApp', ['ionic', 'myApp.controllers', 'myApp.services', 'ionic.
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/merchants');
+  $urlRouterProvider.otherwise('/tab/dash');
 
 });

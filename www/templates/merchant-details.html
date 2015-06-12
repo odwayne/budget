@@ -1,11 +1,11 @@
 <ion-view view-title="Dash">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="merchant in merchants" type="item-text-wrap"> <!-- href="#/tab/merchants/{{merchant.id}}"-->
+      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap"> <!-- href="#/tab/merchants/{{merchant.id}}"-->
         <h1>{{merchant.name}}</h1>
         <p>Minimum Payment: ${{merchant.minPayment}}</p>
         <p>Due Day: {{merchant.dueDay | date:'MM/dd'}}</p>
-        
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
   </ion-content>
